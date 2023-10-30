@@ -5,7 +5,6 @@ import {
   FaTwitter,
   FaLinkedin,
 } from "react-icons/fa";
-import Form from "react-bootstrap/Form";
 import { NavLink } from "react-router-dom";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import "./style.scss";

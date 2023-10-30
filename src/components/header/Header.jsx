@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { GoSearch } from "react-icons/go";
 import { SlMenu } from "react-icons/sl";
-import { SiBuymeacoffee } from "react-icons/Si";
+import { SiBuymeacoffee } from "react-icons/si";
 import { VscChromeClose } from "react-icons/vsc";
 import { useNavigate, useLocation } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
