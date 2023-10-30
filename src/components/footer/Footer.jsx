@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   FaFacebookF,
   FaInstagram,
@@ -11,13 +11,32 @@ import "./style.scss";
 import Img from "../lazyLoadImage/Img";
 import logo from "../../assets/logo.png";
 import cinefile from "../../assets/cinefile.png";
+import emailjs from "@emailjs/browser";
 
 const Footer = () => {
-  const redirect = () => {
-    window.open(
-      "https://github.com/sumandey07/CineFILE/discussions/new?category=q-a",
-      "_blank"
-    );
+  useEffect(() => emailjs.init("zwx1hJPz27ZVIVlJA"), []);
+  const emailRef = useRef();
+  const nameRef = useRef();
+  const messageRef = useRef();
+  const [loading, setLoading] = useState(false);
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    const serviceId = "service_new";
+    const templateId = "template_new";
+    try {
+      setLoading(true);
+      await emailjs.send(serviceId, templateId, {
+        Name: nameRef.current.value,
+        Email: emailRef.current.value,
+        Message: messageRef.current.value,
+      });
+      alert("I ate your email!!");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -27,30 +46,33 @@ const Footer = () => {
           <Img className="image" src={logo} />
           <Img className="logoImg" src={cinefile} />
         </div>
-        <div className="form">
-          <form action="sendEmail()">
-            <input
-              type="text"
-              className="rounded-pill"
-              placeholder="Normal text"
-            />
-            <input
-              type="text"
-              className="rounded-pill"
-              placeholder="Normal text"
-            />
-            <input
-              type="text"
-              className="rounded-pill"
-              placeholder="Normal text"
-            />
-            <input
-              type="submit"
-              className="rounded-pill"
-              placeholder="Normal text"
-            />
-          </form>
-        </div>
+        <form
+          onSubmit={sendEmail}
+          className="mb-4 d-flex form flex-column gap-4 bg-white py-4 px-5 rounded">
+          <input
+            type="text"
+            ref={nameRef}
+            className="rounded py-3 border-0"
+            placeholder="Your Name"
+          />
+          <input
+            type="email"
+            ref={emailRef}
+            className="rounded py-3 border-0"
+            placeholder="Email Address"
+          />
+          <input
+            type="text"
+            ref={messageRef}
+            className="rounded py-5 px-3 border-0"
+            placeholder="How can I help you?"
+          />
+          <input
+            type="submit"
+            disabled={loading}
+            className="bg-primary text-white rounded-pill py-3 border-0"
+          />
+        </form>
         <br />
         <ul className="menuItems">
           <NavLink className="menuItem" to="/terms">
