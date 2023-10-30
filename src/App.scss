@@ -1,0 +1,38 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
+:root {
+  max-width: 1280px;
+  margin: 0 auto;
+  // padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 8em;
+  padding: 2em;
+  will-change: filter;
+
+  &:hover {
+    filter: drop-shadow(0 0 6em #646cffaa);
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}

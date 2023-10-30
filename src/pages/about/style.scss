@@ -1,0 +1,59 @@
+@import "../../mixins.scss";
+
+.about {
+    font-family: Arial, sans-serif;
+    min-height: 650px;
+    padding-top: 170px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .part {
+        align-items: center;
+        position: relative;
+
+        .first {
+            padding-bottom: 60px;
+            display: flex;
+            flex-direction: row;
+            gap: 7px;
+
+            .logo {
+                max-width: 80px;
+                max-height: 80px;
+            }
+
+            .logoImg {
+                width: 300px;
+                display: block;
+
+                @include md {
+                    max-width: 500px;
+                }
+            }
+        }
+
+        .second {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            padding-bottom: 40px;
+
+            .para {
+                color: gainsboro;
+                font-weight: 900;
+                font-size: 30px;
+            }
+        }
+
+        .third {
+            .paragraph {
+                gap: 10px;
+                color: white;
+                padding: 10px 40px 50px 50px;
+                text-align: center;
+                line-height: 30px;
+            }
+        }
+    }
+}

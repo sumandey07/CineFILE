@@ -1,0 +1,23 @@
+@import "../../mixins.scss";
+
+.scroll {
+    opacity: 0.3;
+
+    .scrollTop {
+        position: fixed;
+        width: 5%;
+        bottom: 20px;
+        right: 8px;
+        height: 30px;
+        justify-content: right;
+        z-index: 1000;
+        color: ghostwhite;
+        cursor: pointer;
+        animation: fadeIn 0.2s;
+        transition: opacity 0.4s;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}

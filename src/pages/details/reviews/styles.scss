@@ -1,0 +1,21 @@
+@import "../../../mixins.scss";
+
+.readmore {
+    display: inline;
+    width: 100%;
+    font-size: 12px;
+
+    @include md {
+        font-size: 14px;
+    }
+
+    .read-or-hide {
+        color: rgb(192, 192, 192);
+        cursor: pointer;
+        font-size: 13px;
+
+        @include md {
+            font-size: 15px;
+        }
+    }
+}

@@ -1,0 +1,294 @@
+@import "../../../mixins.scss";
+
+.detailsBanner {
+    width: 100%;
+    background-color: var(--black);
+    padding-top: 100px;
+    margin-bottom: 50px;
+
+    @include md {
+        margin-bottom: 0;
+        padding-top: 120px;
+        min-height: 700px;
+    }
+
+    .backdrop-img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0.2;
+        overflow: hidden;
+
+        .lazy-load-image-background {
+            width: 100%;
+            height: 100%;
+
+            Img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+
+    .opacity-layer {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(180deg,
+                rgba(4, 21, 45, 0) 0%,
+                #04152d 79.17%);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .content {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 25px;
+
+        @include md {
+            gap: 50px;
+            flex-direction: row;
+        }
+
+        .left {
+            flex-shrink: 0;
+
+            .posterImg {
+                width: 100%;
+                display: block;
+                border-radius: 12px;
+
+                @include md {
+                    max-width: 350px;
+                }
+            }
+        }
+
+        .right {
+            color: white;
+
+            .title {
+                font-size: 28px;
+                line-height: 40px;
+
+                @include md {
+                    font-size: 34px;
+                    line-height: 44px;
+                }
+            }
+
+            .subtitle {
+                font-size: 16px;
+                line-height: 24px;
+                margin-bottom: 15px;
+                font-style: italic;
+                opacity: 0.6;
+
+                @include md {
+                    font-size: 20px;
+                    line-height: 28px;
+                }
+            }
+
+            .genres {
+                margin-bottom: 25px;
+                flex-flow: row wrap;
+            }
+
+            .overview {
+                margin-bottom: 25px;
+
+                .heading {
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                }
+
+                .description {
+                    line-height: 24px;
+                    font-size: 13px;
+
+                    @include md {
+                        padding-right: 90px;
+                        font-size: 15px;
+                    }
+                }
+            }
+
+            .rows {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 40px;
+                margin-bottom: 40px;
+
+                .score {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 5px;
+
+                    @include md {
+                        gap: 25px;
+                    }
+
+                    .circleRating {
+                        max-width: 80px;
+                        background: var(--black2);
+                        cursor: pointer;
+                        margin-left: 4px;
+
+                        @include md {
+                            max-width: 98px;
+                        }
+
+                        .CircularProgressbar-text {
+                            fill: white;
+                        }
+
+                    }
+
+                    .infos {
+                        display: flex;
+                        flex-direction: column;
+                        padding-left: 4px;
+
+                        @include md {
+                            padding-left: 0;
+                        }
+
+                        .info1 {
+                            padding-top: 18px;
+                            font-size: 17px;
+
+                            @include md {
+                                padding-top: 23px;
+                                font-size: larger;
+                            }
+                        }
+
+                        .info2 {
+                            padding-top: 6px;
+                            font-size: 17px;
+
+                            @include md {
+                                font-size: larger;
+                            }
+                        }
+                    }
+                }
+
+                .playbtn {
+                    display: flex;
+                    align-items: center;
+                    padding-right: 14px;
+                    gap: 6px;
+                    cursor: pointer;
+
+                    @include md {
+                        gap: 12px;
+                        padding-right: 240px;
+                    }
+
+                    .text {
+                        font-size: 18px;
+                        transition: all 0.4s ease-in-out;
+                    }
+
+                    .icon {
+                        transition: all 0.4s ease-in-out;
+                    }
+
+                    &:hover {
+                        .text {
+                            color: var(--pink);
+                        }
+
+                        .icon {
+                            color: var(--pink);
+                            animation: trailorPlay 0.4s ease-in-out;
+                        }
+                    }
+                }
+            }
+
+            .info {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 15px 0;
+                display: flex;
+
+                .infoItem {
+                    margin-right: 10px;
+                    display: flex;
+                    flex-flow: row wrap;
+                }
+
+                .text {
+                    margin-right: 10px;
+                    opacity: 0.5;
+                    line-height: 24px;
+
+                    &.bold {
+                        font-weight: 600;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .detailsBannerSkeleton {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 25px;
+
+        @include md {
+            gap: 50px;
+            flex-direction: row;
+        }
+
+        .contentWrapper {
+            display: flex;
+            gap: 50px;
+        }
+
+        .left {
+            flex-shrink: 0;
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+            aspect-ratio: 1/1.5;
+
+            @include md {
+                max-width: 350px;
+            }
+        }
+
+        .right {
+            width: 100%;
+
+            .row {
+                width: 100%;
+                height: 25px;
+                margin-bottom: 20px;
+                border-radius: 50px;
+
+                &:nth-child(2) {
+                    width: 75%;
+                    margin-bottom: 50px;
+                }
+
+                &:nth-child(5) {
+                    width: 50%;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+    }
+}

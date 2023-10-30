@@ -1,0 +1,21 @@
+@import "../../mixins.scss";
+
+.genres {
+    display: flex;
+    gap: 8px;
+
+    .genre {
+        background-color: var(--pink);
+        padding: 3px 5px;
+        font-size: 12px;
+        border-radius: 4px;
+        color: white;
+        white-space: nowrap;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--black);
+            animation: trailorPlay 0.5s ease-in-out;
+        }
+    }
+}
