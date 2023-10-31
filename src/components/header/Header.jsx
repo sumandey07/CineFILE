@@ -94,10 +94,10 @@ const Header = () => {
         </div>
         <ul className="menuItems">
           <li className="menuItem" onClick={() => redirect()}>
-            <FaGithub size={18} />
+            <FaGithub size={17} />
           </li>
           <li className="menuItem" onClick={() => buymeacoffee()}>
-            <SiBuymeacoffee size={18} />
+            <SiBuymeacoffee size={17} />
           </li>
           <li className="menuItem" onClick={() => navigationHandler("movie")}>
             Movies

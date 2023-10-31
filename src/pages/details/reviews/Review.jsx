@@ -1,21 +1,23 @@
 import React, { useRef } from "react";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-import { BsStar } from "react-icons/bs";
+import {
+  MdKeyboardDoubleArrowLeft,
+  MdKeyboardDoubleArrowRight,
+} from "react-icons/md";
 import { useSelector } from "react-redux";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import "./style.scss";
-import avatar from "../../../assets/avatar.png";
+import avatar from "@assets/avatar.png";
 import Img from "../../../components/lazyLoadImage/Img.jsx";
 import dayjs from "dayjs";
 import ReadMore from "./ReadMore";
+import star from "@assets/star.svg";
 
 const Review = ({ data, loading }) => {
   const carouselContainer = useRef();
   const { url } = useSelector((state) => state.home);
-  const go = () => {
-    data?.map((item) => {
-      item?.url ? window.open(`${item?.url}`, "_blank") : "";
-    });
+  const go = (id) => {
+    const url = `https://www.themoviedb.org/review/${id}`;
+    id == null ? "" : window.open(url, "_blank");
   };
   const goto = () => {
     let s = item?.author_details?.avatar_path;
@@ -29,8 +31,8 @@ const Review = ({ data, loading }) => {
 
     const scrollAmount =
       dir === "left"
-        ? container.scrollLeft - container.offsetWidth * 2
-        : container.scrollLeft + container.offsetWidth * 2;
+        ? container.scrollLeft - container.offsetWidth * 1
+        : container.scrollLeft + container.offsetWidth * 1;
     container.scrollTo({ left: scrollAmount, behavior: "smooth" });
   };
 
@@ -55,11 +57,15 @@ const Review = ({ data, loading }) => {
     <div className="reviews">
       <ContentWrapper>
         <div className="carouselTitle">Reviews</div>
-        <FaArrowAltCircleLeft
+        <MdKeyboardDoubleArrowLeft
+          color="white"
+          size={27}
           className="carouselLeftNav arrow"
           onClick={() => navigation("left")}
         />
-        <FaArrowAltCircleRight
+        <MdKeyboardDoubleArrowRight
+          color="white"
+          size={27}
           className="carouselRighttNav arrow"
           onClick={() => navigation("right")}
         />
@@ -71,10 +77,7 @@ const Review = ({ data, loading }) => {
                   (() => goto())
                 : avatar;
               return (
-                <div
-                  key={item.id}
-                  className="carouselItem container border rounded-3"
-                >
+                <div key={item.id} className="carouselItem container rounded-3">
                   <div className="block">
                     <div className="posterBlock">
                       <Img
@@ -83,16 +86,15 @@ const Review = ({ data, loading }) => {
                       />
                     </div>
                     <div className="titleBlock">
-                      <span className="title" onClick={() => go()}>
+                      <span className="title" onClick={() => go(item.id)}>
                         A Review By {item.author}
                       </span>
                       <span className="titles">
-                        written by {item.author} on{" "}
                         {dayjs(item.created_at).format("MMM D, YYYY")}
                       </span>
                     </div>
                     <div className="rating border rounded-5">
-                      <BsStar size={11} />
+                      <img src={star} alt="" className="star" />
                       <span className="rate">
                         {(item?.author_details?.rating / 1).toFixed(1)}
                       </span>
@@ -100,7 +102,7 @@ const Review = ({ data, loading }) => {
                   </div>
                   <div className="textBlock container">
                     <span className="content">
-                      <ReadMore>{item.content}</ReadMore>
+                      <ReadMore className="contents">{item.content}</ReadMore>
                     </span>
                   </div>
                 </div>

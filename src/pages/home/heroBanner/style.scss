@@ -57,7 +57,8 @@
 
         .title {
             font-size: 50px;
-            font-weight: 700;
+            // font-weight: 700;
+            font-family: PoppinsSemiBold, sans-serif;
 
             @include md {
                 margin-bottom: 15px;

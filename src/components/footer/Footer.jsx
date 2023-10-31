@@ -24,7 +24,7 @@ const Footer = () => {
           className="btn px-5 m-5 btn btn-danger text-decoration-none text-white rounded-pill py-3 border-0">
           Let's Talk
         </a>
-        <ul className="menuItems">
+        <ul className="menuItems p-0 mx-auto">
           <NavLink className="menuItem" to="/terms">
             Terms of Use
           </NavLink>
