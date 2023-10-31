@@ -24,13 +24,17 @@ const VideoPopup = ({
         <div className="closeBtn">
           <VscChromeClose size={22} onClick={hidePopup} />
         </div>
-        <ReactPlayer
-          url={`https://www.youtube.com/watch?v=${videoId}`}
-          controls
-          className="class"
-          width="99%"
-          height="99%"
-        />
+        {videoId == null ? (
+          <div className="noVideo">No Video Available</div>
+        ) : (
+          <ReactPlayer
+            url={`https://www.youtube.com/watch?v=${videoId}`}
+            controls
+            className="class"
+            width="99%"
+            height="99%"
+          />
+        )}
       </div>
     </div>
   );
