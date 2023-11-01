@@ -52,6 +52,7 @@ const HeroBanner = () => {
           <div className="searchInput">
             <input
               type="text"
+              autoFocus
               placeholder="Search for a movie or tv show...."
               onChange={(e) => setQuery(e.target.value)}
               onKeyUp={searchQueryHandler}
@@ -60,8 +61,7 @@ const HeroBanner = () => {
               type="submit"
               className="but"
               onChange={(e) => setQuery(e.target.value)}
-              onClick={submitHandler}
-            >
+              onClick={submitHandler}>
               Search
             </button>
           </div>

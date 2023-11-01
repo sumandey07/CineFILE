@@ -19,6 +19,7 @@ const PersonCard = ({ data, fromSearch }) => {
       </div>
       <div className="textBlock">
         <span className="title">{data.name}</span>
+        <span className="titleDept">{data.known_for_department}</span>
       </div>
     </div>
   );
