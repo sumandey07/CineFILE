@@ -71,28 +71,48 @@ body {
 }
 
 @font-face {
-    font-family: Poppins;
+    font-family: HelveticaLight;
+    src: url(./fonts/Helvetica/helvetica-light-587ebe5a59211.ttf);
+}
+
+@font-face {
+    font-family: AvenirRoman;
+    src: url(./fonts/Avenir/AvenirLTStd-Roman.otf);
+}
+
+@font-face {
+    font-family: "Poppins";
     src: url(./fonts/Poppins/Poppins-Regular.ttf);
 }
 
 @font-face {
-    font-family: PoppinsMedium;
+    font-family: "PoppinsMedium";
     src: url(./fonts/Poppins/Poppins-Medium.ttf);
 }
 
 @font-face {
-    font-family: PoppinsBold;
+    font-family: "PoppinsBold";
     src: url(./fonts/Poppins/Poppins-Bold.ttf)
 }
 
 @font-face {
-    font-family: PoppinsExtraBold;
+    font-family: "PoppinsExtraBold";
     src: url(./fonts/Poppins/Poppins-ExtraBold.ttf)
 }
 
 @font-face {
-    font-family: PoppinsThin;
+    font-family: "PoppinsThin";
     src: url(./fonts/Poppins/Poppins-Thin.ttf)
+}
+
+@font-face {
+    font-family: "PoppinsLight";
+    src: url(./fonts/Poppins/Poppins-Light.ttf)
+}
+
+@font-face {
+    font-family: PoppinsExtraLight;
+    src: url(./fonts/Poppins/Poppins-ExtraLight.ttf)
 }
 
 @font-face {

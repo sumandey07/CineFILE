@@ -61,13 +61,13 @@ const Review = ({ data, loading }) => {
         <div className="carouselTitle">Reviews</div>
         <IoIosArrowDropleftCircle
           color="white"
-          size={27}
+          size={32}
           className="carouselLeftNav arrow"
           onClick={() => navigation("left")}
         />
         <IoIosArrowDroprightCircle
           color="white"
-          size={27}
+          size={32}
           className="carouselRighttNav arrow"
           onClick={() => navigation("right")}
         />

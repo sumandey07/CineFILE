@@ -12,6 +12,10 @@ import Img from "../lazyLoadImage/Img";
 import cinefile from "../../assets/cinefile.png";
 
 const Footer = () => {
+  const redirect = () => {
+    window.open("https://github.com/sumandey07/CineFILE/discussions", "_blank");
+  };
+
   return (
     <footer className="footer">
       <ContentWrapper>

@@ -68,7 +68,7 @@ const Header = () => {
   };
 
   const redirect = () => {
-    window.open("https://github.com/sumandey07/CineFILE", "_blank");
+    window.open("https://github.com/sponsors/sumandey07", "_blank");
   };
 
   const buymeacoffee = () => {

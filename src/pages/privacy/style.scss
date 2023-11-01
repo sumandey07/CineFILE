@@ -1,23 +1,41 @@
 @import "../../mixins.scss";
 
-.about {
-    min-height: 650px;
-    padding-top: 170px;
+.privacy {
     display: flex;
+    color: white;
     flex-direction: column;
+    gap: 10px;
+    opacity: 0.9;
+    padding: 170px 25px 100px 10px;
 
-    .para {
-        gap: 10px;
-        color: white;
-        padding: 10px 0px 50px 50px;
-
-        .title {
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 50px;
-            font-family: "PoppinsSemiBold", sans-serif;
-        }
+    .title {
+        margin-bottom: 50px;
+        font-family: "PoppinsSemiBold", sans-serif;
     }
 
+    a {
+        text-decoration: none;
+        font-size: 13px;
+    }
+
+    h4 {
+        margin-top: 50px;
+        margin-bottom: 40px;
+        opacity: 0.8;
+    }
+
+    p {
+        opacity: 0.7;
+        font-size: 13px;
+        font-family: "PoppinsExtraLight", sans-serif;
+        line-height: 24px;
+    }
+
+    li {
+        opacity: 0.7;
+        font-size: 13px;
+        font-family: "PoppinsExtraLight", sans-serif;
+        line-height: 24px;
+    }
 
 }
