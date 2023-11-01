@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import {
-  MdKeyboardDoubleArrowLeft,
-  MdKeyboardDoubleArrowRight,
-} from "react-icons/md";
+  IoIosArrowDropleftCircle,
+  IoIosArrowDroprightCircle,
+} from "react-icons/io";
 import { useSelector } from "react-redux";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import "./style.scss";
@@ -53,17 +53,19 @@ const Review = ({ data, loading }) => {
     );
   };
 
-  return (
+  return data?.length === 0 ? (
+    ""
+  ) : (
     <div className="reviews">
       <ContentWrapper>
         <div className="carouselTitle">Reviews</div>
-        <MdKeyboardDoubleArrowLeft
+        <IoIosArrowDropleftCircle
           color="white"
           size={27}
           className="carouselLeftNav arrow"
           onClick={() => navigation("left")}
         />
-        <MdKeyboardDoubleArrowRight
+        <IoIosArrowDroprightCircle
           color="white"
           size={27}
           className="carouselRighttNav arrow"
@@ -87,13 +89,13 @@ const Review = ({ data, loading }) => {
                     </div>
                     <div className="titleBlock">
                       <span className="title" onClick={() => go(item.id)}>
-                        A Review By {item.author}
+                        {item.author}
                       </span>
                       <span className="titles">
                         {dayjs(item.created_at).format("MMM D, YYYY")}
                       </span>
                     </div>
-                    <div className="rating border rounded-5">
+                    <div className="rating">
                       <img src={star} alt="" className="star" />
                       <span className="rate">
                         {(item?.author_details?.rating / 1).toFixed(1)}

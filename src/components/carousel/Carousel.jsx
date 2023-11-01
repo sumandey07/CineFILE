@@ -1,5 +1,8 @@
 import React, { useRef } from "react";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import {
+  IoIosArrowDropleftCircle,
+  IoIosArrowDroprightCircle,
+} from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
@@ -45,11 +48,15 @@ const Carousel = ({ data, loading, endpoint, title }) => {
     <div className="carousel">
       <ContentWrapper>
         {title && <div className="carouselTitle">{title}</div>}
-        <FaArrowAltCircleLeft
+        <IoIosArrowDropleftCircle
+          color="white"
+          size={36}
           className="carouselLeftNav arrow"
           onClick={() => navigation("left")}
         />
-        <FaArrowAltCircleRight
+        <IoIosArrowDroprightCircle
+          color="white"
+          size={36}
           className="carouselRighttNav arrow"
           onClick={() => navigation("right")}
         />
@@ -65,8 +72,7 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                   className="carouselItem"
                   onClick={() =>
                     navigate(`/${item.media_type || endpoint}/${item.id}`)
-                  }
-                >
+                  }>
                   <div className="posterBlock">
                     <Img src={posterUrl} />
                     <CircleRating rating={item.vote_average.toFixed(1)} />

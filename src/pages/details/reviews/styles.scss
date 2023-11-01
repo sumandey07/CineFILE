@@ -4,6 +4,8 @@
     display: inline;
     width: 100%;
     font-size: 12px;
+    text-align: justify;
+    opacity: 0.9;
 
     @include md {
         font-size: 14px;
@@ -11,7 +13,11 @@
 
     .read-or-hide {
         color: rgb(192, 192, 192);
+        padding-top: 8px;
         cursor: pointer;
+        text-align: justify;
+        opacity: 0.7;
+        font-family: "Poppins", sans-serif;
         font-size: 13px;
 
         @include md {

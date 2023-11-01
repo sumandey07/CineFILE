@@ -3,45 +3,19 @@
 .about {
     min-height: 650px;
     padding-top: 170px;
-    align-items: center;
     display: flex;
     flex-direction: column;
 
-    .part {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        position: relative;
+    .para {
+        gap: 10px;
+        color: white;
+        padding: 10px 0px 50px 50px;
 
-        .first {
-            padding-bottom: 60px;
-            display: flex;
-            flex-direction: row;
-            gap: 7px;
-
-            .logo {
-                max-width: 80px;
-                max-height: 80px;
-            }
-
-            .logoImg {
-                width: 300px;
-                display: block;
-
-                @include md {
-                    max-width: 500px;
-                }
-            }
-        }
-
-        .second {
-
-            .paragraph {
-                gap: 10px;
-                color: white;
-                padding: 10px 0px 50px 50px;
-                text-align: center;
-            }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            font-family: "PoppinsSemiBold", sans-serif;
         }
     }
 }
