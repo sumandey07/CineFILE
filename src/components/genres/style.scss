@@ -14,7 +14,7 @@
         cursor: pointer;
 
         &:hover {
-            color: var(--black);
+            background-color: dodgerblue;
             animation: trailorPlay 0.5s ease-in-out;
         }
     }

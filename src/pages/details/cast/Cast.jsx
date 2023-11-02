@@ -33,8 +33,7 @@ const Cast = ({ data, loading }) => {
                 <div
                   key={item.id}
                   className="listItem"
-                  onClick={() => navigate(`/person/${item.id}`)}
-                >
+                  onClick={() => navigate(`/person/${item.id}`)}>
                   <div className="profileImg">
                     <Img src={imgUrl} />
                   </div>

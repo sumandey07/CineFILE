@@ -74,17 +74,21 @@ const DetailsBanner = ({ video, crew }) => {
                       ).format("YYYY")})`}
                     </div>
                     <div className="subtitle">{data.tagline}</div>
-                    <Genres
-                      data={_genres}
-                      media={mediaType}
-                      className="genres"
-                    />
+                    {_genres?.length === 0 ? (
+                      ""
+                    ) : (
+                      <Genres
+                        data={_genres}
+                        media={mediaType}
+                        className="genres"
+                      />
+                    )}
 
                     <div className="rows">
                       <div className="score">
                         <CircleRating
                           className="circleRating"
-                          rating={data.vote_average.toFixed(1)}
+                          rating={data.vote_average?.toFixed(1)}
                         />
                         <div className="infos">
                           <span className="info1">User</span>
@@ -97,8 +101,7 @@ const DetailsBanner = ({ video, crew }) => {
                           setShow(true);
                           setValue(names);
                           setVideoId(keys);
-                        }}
-                      >
+                        }}>
                         <FaPlay className="icon" size={19} />
                         {mediaType === "movie" ? (
                           <span className="text">Watch Trailer</span>
