@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { Helmet } from "react-helmet-async";
 
 import "./style.scss";
 
@@ -17,6 +18,8 @@ const SearchResult = () => {
   const [pageNum, setPageNum] = useState(1);
   const [loading, setLoading] = useState(false);
   const { query } = useParams();
+
+  const searchResultHeader = `${query} search results - CineFILE`;
 
   const fetchInitialData = () => {
     setLoading(true);
@@ -52,6 +55,13 @@ const SearchResult = () => {
 
   return (
     <div className="searchResultsPage">
+      <Helmet>
+        <title>{searchResultHeader}</title>
+        <meta
+          name="description"
+          content="Search results for the query(movies, tv shows or person) you are looking for."
+        />
+      </Helmet>
       {loading && <Spinner initial={true} />}
       {!loading && (
         <ContentWrapper>
@@ -67,8 +77,7 @@ const SearchResult = () => {
                 dataLength={data?.results?.length || []}
                 next={fetchNextPageData}
                 hasMore={pageNum <= data?.total_pages}
-                loader={<Spinner />}
-              >
+                loader={<Spinner />}>
                 {data?.results.map((item, index) => {
                   if (item.media_type === "person") {
                     return (

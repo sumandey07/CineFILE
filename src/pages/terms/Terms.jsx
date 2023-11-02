@@ -1,9 +1,17 @@
 import React from "react";
 import "./style.scss";
+import { Helmet } from "react-helmet-async";
 
 const Terms = () => {
   return (
     <div className="terms container">
+      <Helmet>
+        <title>Terms of Use</title>
+        <meta
+          name="description"
+          content="terms of Use for a movie and tv series information website named CineFILE."
+        />
+      </Helmet>
       <h1 className="title">Terms of Use</h1>
       <h5 className="main">
         <span className="span">Last updated : </span> June 23, 2023
@@ -29,7 +37,9 @@ const Terms = () => {
           singular or in plural.
         </p>
         <h4>Definitions</h4>
-        <p className="purpose">For the purposes of these Terms and Conditions:</p>
+        <p className="purpose">
+          For the purposes of these Terms and Conditions:
+        </p>
         <ul>
           <li>
             <p>

@@ -1,9 +1,14 @@
 import React from "react";
 import "./style.scss";
+import { Helmet } from "react-helmet-async";
 
 const Privacy = () => {
   return (
     <div className="privacy container">
+      <Helmet>
+        <title>Privacy Policy - CineFILE</title>
+        <meta name="description" content="Privacy Policy of the website." />
+      </Helmet>
       <h1 className="title">Privacy Policy</h1>
 
       <p>

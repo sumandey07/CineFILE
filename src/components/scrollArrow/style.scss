@@ -1,20 +1,28 @@
 @import "../../mixins.scss";
 
 .scroll {
-    opacity: 0.3;
+    opacity: 0.5;
 
     .scrollTop {
         position: fixed;
-        width: 5%;
+        width: 8%;
         bottom: 20px;
-        right: 8px;
-        height: 30px;
+        right: 0;
+        height: 38px;
         justify-content: right;
-        z-index: 1000;
+        z-index: 100;
         color: ghostwhite;
         cursor: pointer;
         animation: fadeIn 0.2s;
         transition: opacity 0.4s;
+    }
+
+    @media screen and (max-width: 768px) {
+        .scrollTop {
+            bottom: 23px;
+            width: 18%;
+            height: 40px;
+        }
     }
 
     &:hover {

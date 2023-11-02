@@ -8,10 +8,12 @@ import VideosSection from "./videosSection/VideosSection";
 import Similar from "./carousels/Similar";
 import Recommendation from "./carousels/Recommendation";
 import Review from "./reviews/Review";
+import { Helmet } from "react-helmet-async";
 
 const Details = () => {
   const { mediaType, id } = useParams();
   const { data, loading } = useFetch(`/${mediaType}/${id}/videos`);
+  const { data: name, loading: nameLoading } = useFetch(`/${mediaType}/${id}`);
   const { data: reviews, loading: reviewsLoading } = useFetch(
     `/${mediaType}/${id}/reviews`
   );
@@ -19,8 +21,20 @@ const Details = () => {
     `/${mediaType}/${id}/credits`
   );
 
+  const movieDetails =
+    mediaType === "movie"
+      ? `${name?.title} - CineFILE`
+      : `${name?.name} - CineFILE`;
+
   return (
     <div className="main">
+      <Helmet>
+        <title>{movieDetails}</title>
+        <meta
+          name="description"
+          content="Information about the movie you are looking for."
+        />
+      </Helmet>
       <DetailsBanner video={data?.results} crew={credits?.crew} />
       <Cast data={credits?.cast} loading={creditsLoading} className="cast" />
       <VideosSection data={data} loading={loading} />

@@ -54,7 +54,14 @@ const Review = ({ data, loading }) => {
   };
 
   return data?.length === 0 ? (
-    ""
+    <div className="noReviews">
+      <ContentWrapper>
+        <div className="carouselTitle">Reviews</div>
+        <div className="carouselItems" ref={carouselContainer}>
+          No reviews posted yet
+        </div>
+      </ContentWrapper>
+    </div>
   ) : (
     <div className="reviews">
       <ContentWrapper>

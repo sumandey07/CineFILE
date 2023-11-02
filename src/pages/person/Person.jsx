@@ -7,6 +7,7 @@ import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import PersonCard from "../../components/personCard/PersonCard";
 import Spinner from "../../components/spinner/Spinner";
 import noResults from "../../assets/no-results.png";
+import { Helmet } from "react-helmet-async";
 
 const Person = () => {
   const [data, setData] = useState(null);
@@ -40,10 +41,17 @@ const Person = () => {
     setData(null);
     setPageNum(1);
     fetchInitialData();
-  },[]);
+  }, []);
 
   return (
     <div className="personPage">
+      <Helmet>
+        <title>Popular People - CineFILE</title>
+        <meta
+          name="description"
+          content="It is a list of popular people from different movies and tv shows in the world sorted by popularity."
+        />
+      </Helmet>
       <ContentWrapper>
         <div className="pageHeader">
           <div className="pageTitle">Popular People</div>
@@ -57,8 +65,7 @@ const Person = () => {
                 dataLength={data?.results?.length || []}
                 next={fetchNextPageData}
                 hasMore={pageNum <= data?.total_pages}
-                loader={<Spinner />}
-              >
+                loader={<Spinner />}>
                 {data?.results?.map((item, index) => {
                   return <PersonCard key={index} data={item} />;
                 })}

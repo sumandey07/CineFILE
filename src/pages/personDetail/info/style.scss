@@ -1,15 +1,14 @@
 @import "../../../mixins.scss";
 
-.detailsBanners {
+.personInfo {
     width: 100%;
     background-color: var(--black);
     padding-top: 100px;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 
     @include md {
-        margin-bottom: 0;
+        margin-bottom: 80px;
         padding-top: 120px;
-        min-height: 700px;
     }
 
     .backdrop-img {
@@ -76,6 +75,7 @@
             .title {
                 font-size: 28px;
                 line-height: 40px;
+                font-family: "PoppinsSemiBold", sans-serif;
 
                 @include md {
                     font-size: 34px;
@@ -84,16 +84,42 @@
             }
 
             .subtitle {
-                font-size: 16px;
+                font-size: 17px;
+                margin-top: 3px;
                 line-height: 24px;
-                margin-bottom: 15px;
-                font-style: italic;
-                opacity: 0.5;
+                margin-bottom: 20px;
+                opacity: 0.7;
+                display: flex;
+                flex-direction: column;
 
                 @include md {
-                    font-size: 20px;
+                    font-size: 18px;
                     line-height: 28px;
                 }
+
+                .imdb {
+                    margin-top: 30px;
+                    font-size: 17px;
+
+                    @media (min-width: 768px) {
+                        margin-top: 0px;
+                        position: absolute;
+                        right: 150px;
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            .birthday {
+                margin-top: 60px;
+                border-bottom: 1.5px solid rgba(255, 255, 255, 0.1);
+                padding-bottom: 15px;
+            }
+
+            .birthPlace {
+                margin-top: 30px;
+                padding-bottom: 15px;
+                border-bottom: 1.5px solid rgba(255, 255, 255, 0.1);
             }
 
             .genres {
@@ -102,18 +128,22 @@
             }
 
             .overview {
+                margin-top: 45px;
                 margin-bottom: 25px;
 
                 .heading {
                     font-size: 24px;
-                    margin-bottom: 10px;
+                    margin-bottom: 30px;
                 }
 
                 .description {
-                    line-height: 24px;
+                    line-height: 26px;
+                    opacity: 0.9;
+                    font-size: 15px;
+                    font-family: "PoppinsExtraLight", sans-serif;
 
                     @include md {
-                        padding-right: 90px;
+                        padding-right: 84px;
                     }
                 }
             }
@@ -142,57 +172,57 @@
                     }
                 }
 
-                .playbtn {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    cursor: pointer;
+                // .playbtn {
+                //     display: flex;
+                //     align-items: center;
+                //     gap: 10px;
+                //     cursor: pointer;
 
-                    .text {
-                        font-size: 22px;
-                        transition: all 0.4s ease-in-out;
-                    }
+                //     .text {
+                //         font-size: 22px;
+                //         transition: all 0.4s ease-in-out;
+                //     }
 
-                    .icon {
-                        transform: translateY(0);
-                        transition: all 0.4s ease-in-out;
-                    }
+                //     .icon {
+                //         transform: translateY(0);
+                //         transition: all 0.4s ease-in-out;
+                //     }
 
-                    &:hover {
-                        .text {
-                            color: var(--pink);
-                        }
+                //     &:hover {
+                //         .text {
+                //             color: var(--pink);
+                //         }
 
-                        .icon {
-                            color: var(--pink);
-                            animation: trailorPlay 0.4s ease-in-out;
-                        }
-                    }
-                }
+                //         .icon {
+                //             color: var(--pink);
+                //             animation: trailorPlay 0.4s ease-in-out;
+                //         }
+                //     }
+                // }
             }
 
-            .info {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                padding: 15px 0;
-                display: flex;
+            // .info {
+            //     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            //     padding: 15px 0;
+            //     display: flex;
 
-                .infoItem {
-                    margin-right: 10px;
-                    display: flex;
-                    flex-flow: row wrap;
-                }
+            //     .infoItem {
+            //         margin-right: 10px;
+            //         display: flex;
+            //         flex-flow: row wrap;
+            //     }
 
-                .text {
-                    margin-right: 10px;
-                    opacity: 0.5;
-                    line-height: 24px;
+            //     .text {
+            //         margin-right: 10px;
+            //         opacity: 0.5;
+            //         line-height: 24px;
 
-                    &.bold {
-                        font-weight: 600;
-                        opacity: 1;
-                    }
-                }
-            }
+            //         &.bold {
+            //             font-weight: 600;
+            //             opacity: 1;
+            //         }
+            //     }
+            // }
         }
     }
 

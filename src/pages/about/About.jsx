@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
 import Spinner from "../../components/spinner/Spinner";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
   const [loading, setLoading] = useState(false);
@@ -22,6 +23,13 @@ const About = () => {
 
   return (
     <div className="about">
+      <Helmet>
+        <title>About - CineFILE</title>
+        <meta
+          name="description"
+          content="In this page you can find basic informations about the website."
+        />
+      </Helmet>
       {loading && <Spinner initial={true} />}
       {!loading && (
         <article className="container">

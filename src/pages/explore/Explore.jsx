@@ -10,6 +10,7 @@ import { fetchDataFromApi } from "../../utils/api";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import MovieCard from "../../components/movieCard/MovieCard";
 import Spinner from "../../components/spinner/Spinner";
+import { Helmet } from "react-helmet-async";
 
 let filters = {};
 
@@ -61,6 +62,11 @@ const Explore = () => {
     );
   };
 
+  const pageHeader =
+    mediaType === "tv"
+      ? "Explore TV Shows - CineFILE"
+      : "Explore Movies - CineFILE";
+
   useEffect(() => {
     filters = {};
     setData(null);
@@ -97,6 +103,13 @@ const Explore = () => {
 
   return (
     <div className="explorePage">
+      <Helmet>
+        <title>{pageHeader}</title>
+        <meta
+          name="description"
+          content="Explore movies and tv shows based on your preferences."
+        />
+      </Helmet>
       <ContentWrapper>
         <div className="pageHeader">
           <div className="pageTitle">
@@ -137,8 +150,7 @@ const Explore = () => {
                 dataLength={data?.results?.length || []}
                 next={fetchNextPageData}
                 hasMore={pageNum <= data?.total_pages}
-                loader={<Spinner />}
-              >
+                loader={<Spinner />}>
                 {data?.results?.map((item, index) => {
                   if (item.media_type === "person") return;
                   return (
