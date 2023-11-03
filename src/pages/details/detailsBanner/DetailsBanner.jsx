@@ -46,7 +46,7 @@ const DetailsBanner = ({ video, crew }) => {
   };
 
   const isReleaseDate =
-    data?.release_date === null
+    data?.release_date.length === 0
       ? ""
       : `(${dayjs(data?.release_date).format("YYYY")})`;
 

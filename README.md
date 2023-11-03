@@ -6,7 +6,7 @@
 
 ## You can visit the live website here
 
-[Vercel Deployment]: https://cine-file.vercel.app
+[Vercel Deployment](https://cine-file.vercel.app)
 
 
-[Netlify Deployment]: https://cinefilehere.netlify.app
+[Netlify Deployment](https://cinefilehere.netlify.app)
