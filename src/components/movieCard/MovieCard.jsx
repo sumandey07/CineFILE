@@ -17,7 +17,7 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
     : PosterFallback;
 
   const isReleaseDate =
-    data.release_date.length === 0
+    data.release_date?.length === 0
       ? ""
       : `${dayjs(data.release_date).format("MMM D, YYYY")}`;
 
