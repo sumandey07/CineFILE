@@ -25,6 +25,7 @@ const Footer = () => {
         <div className="mid text-center pt-4 fs-3">Ready to Talk?</div>
         <a
           href="https://forms.gle/pUuRQ5fqMk8cunCp7"
+          target="_blank"
           className="btn px-5 m-5 btn btn-danger text-decoration-none text-white rounded-pill py-3 border-0">
           Let's Talk
         </a>

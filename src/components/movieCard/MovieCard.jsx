@@ -15,11 +15,16 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
   const posterUrl = data.poster_path
     ? url.poster + data.poster_path
     : PosterFallback;
+
+  const isReleaseDate =
+    data?.release_date.length === 0
+      ? ""
+      : `${dayjs(data.release_date).format("MMM D, YYYY")}`;
+
   return (
     <div
       className="movieCard"
-      onClick={() => navigate(`/${data.media_type || mediaType}/${data.id}`)}
-    >
+      onClick={() => navigate(`/${data.media_type || mediaType}/${data.id}`)}>
       <div className="posterBlock">
         <Img className="posterImg" src={posterUrl} />
         {!fromSearch && (
@@ -31,9 +36,7 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
       </div>
       <div className="textBlock">
         <span className="title">{data.title || data.name}</span>
-        <span className="date">
-          {dayjs(data.release_date).format("MMM D, YYYY")}
-        </span>
+        <span className="date">{isReleaseDate}</span>
       </div>
     </div>
   );
