@@ -46,15 +46,15 @@ const Person = () => {
   return (
     <div className="personPage">
       <Helmet>
-        <title>Popular People - CineFILE</title>
+        <title>Trending People - CineFILE</title>
         <meta
           name="description"
-          content="It is a list of popular people from different movies and tv shows in the world sorted by popularity."
+          content="It is a list of trending people from different movies and tv shows in the world sorted by popularity."
         />
       </Helmet>
       <ContentWrapper>
         <div className="pageHeader">
-          <div className="pageTitle">Popular People</div>
+          <div className="pageTitle">Trending People</div>
         </div>
         {loading && <Spinner initial={true} />}
         {!loading && (

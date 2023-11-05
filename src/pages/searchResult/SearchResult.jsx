@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import InfiniteScroll from "react-infinite-scroll-component";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { useParams } from "react-router-dom";
 
 import "./style.scss";
 
-import { fetchDataFromApi } from "../../utils/api";
-import Img from "../../components/lazyLoadImage/Img";
-import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
-import MovieCard from "../../components/movieCard/MovieCard";
-import Spinner from "../../components/spinner/Spinner";
 import noResults from "../../assets/no-results.png";
+import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
+import Img from "../../components/lazyLoadImage/Img";
+import MovieCard from "../../components/movieCard/MovieCard";
 import PersonCard from "../../components/personCard/PersonCard";
+import Spinner from "../../components/spinner/Spinner";
+import { fetchDataFromApi } from "../../utils/api";
 
 const SearchResult = () => {
   const [data, setData] = useState(null);

@@ -68,6 +68,24 @@
                     max-width: 350px;
                 }
             }
+
+            .shareIcon {
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin-top: 20px;
+                margin-right: 20px;
+
+                @include md {
+                    left: 0;
+                    margin-top: 20px;
+                    margin-left: 310px;
+                }
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
         }
 
         .right {
@@ -85,15 +103,18 @@
             }
 
             .subtitle {
-                font-size: 16px;
                 line-height: 24px;
                 margin-bottom: 15px;
-                font-style: italic;
                 opacity: 0.6;
+                align-items: center;
 
                 @include md {
                     font-size: 20px;
                     line-height: 28px;
+                }
+
+                .certify {
+                    font-size: 15px;
                 }
             }
 
@@ -232,11 +253,44 @@
                 .text {
                     margin-right: 10px;
                     opacity: 0.5;
-                    line-height: 24px;
+                    line-height: 30px;
 
                     &.bold {
                         font-weight: 600;
                         opacity: 1;
+                    }
+                }
+            }
+
+            .infoSS {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 15px 0;
+                display: flex;
+                flex-wrap: wrap;
+
+                .textSS {
+                    margin-right: 10px;
+                    opacity: 0.5;
+                    margin-bottom: 4px;
+                    line-height: 26px;
+
+                    &.bold {
+                        font-weight: 600;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .content {
+            .right {
+                .infoSS {
+                    flex-direction: column;
+
+                    .textSS {
+                        margin-bottom: 10px;
                     }
                 }
             }

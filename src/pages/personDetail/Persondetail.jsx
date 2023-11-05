@@ -1,14 +1,14 @@
 import React from "react";
-import "./style.scss";
+import { Helmet } from "react-helmet-async";
+import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import Info from "../personDetail/info/Info";
-import { useParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import "./style.scss";
 
 const Persondetail = ({}) => {
   const { id } = useParams();
   const { data, loading } = useFetch(`/person/${id}`);
-  const title = `${data?.name}` + " - CineFILE";
+  const title = `${data?.name} - CineFILE`;
   return (
     <div>
       <Helmet>

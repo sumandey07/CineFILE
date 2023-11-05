@@ -12,6 +12,25 @@
         flex-direction: column;
     }
 
+    .note {
+        text-align: center;
+        font-size: 10px;
+        color: white;
+        letter-spacing: 1.5px;
+        font-family: "PoppinsLight", sans-serif;
+        line-height: 23px;
+        opacity: 0.8;
+
+        @include md {
+            font-size: 11px;
+        }
+
+        &:hover {
+            color: fuchsia;
+            opacity: 1;
+        }
+    }
+
     .img {
         gap: 10px;
         display: flex;
@@ -47,7 +66,7 @@
             color: azure;
             transition: all ease 0.2s;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 14px;
 
             @include md {
                 font-size: 16px;

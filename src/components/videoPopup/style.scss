@@ -30,6 +30,7 @@
         position: relative;
         width: 96%;
         display: flex;
+        flex-direction: row;
         aspect-ratio: 16 / 9.5;
         background-color: #151414;
         transform: scale(0.2);
@@ -70,10 +71,10 @@
         }
 
         .name {
-            font-weight: bold;
-            font-size: 16px;
+            font-family: "PoppinsMedium", sans-serif;
             color: white;
             position: absolute;
+            align-items: center;
             left: 16px;
             top: 11px;
 
@@ -86,10 +87,11 @@
 
         .closeBtn {
             position: absolute;
-            top: 8px;
+            margin-top: 7px;
             color: white;
-            right: 16px;
             cursor: pointer;
+            top: 8px;
+            right: 16px;
 
             @include md {
                 top: 15px;

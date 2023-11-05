@@ -44,8 +44,9 @@ const Header = () => {
   }, [lastScrollY]);
 
   const searchQueryHandler = (event) => {
-    if (event.key === "Enter" && query.length > 0) {
-      navigate(`/search/${query}`);
+    const newQuery = query.trim();
+    if (event.key === "Enter" && newQuery.length > 0) {
+      navigate(`/search/${newQuery}`);
       setTimeout(() => {
         setShows(false);
         setQuery("");

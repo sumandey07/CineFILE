@@ -1,22 +1,25 @@
-import { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { fetchDataFromApi } from "./utils/api";
-import { useSelector, useDispatch } from "react-redux";
-import { getApiConfiguration, getGenres, getPeople } from "./store/homeSlice";
+import Footer from "@components/footer/Footer";
+import Header from "@components/header/Header";
+import ScrollArrow from "@components/scrollArrow/ScrollArrow";
+import PageNotFound from "@pages/404/PageNotFound";
+import About from "@pages/about/About";
+import Details from "@pages/details/Details";
+import Explore from "@pages/explore/Explore";
+import GenreList from "@pages/genreList/GenreList";
+import Home from "@pages/home/Home";
+import Person from "@pages/person/Person";
+import Persondetail from "@pages/personDetail/Persondetail";
+import Privacy from "@pages/privacy/Privacy";
+import SearchResult from "@pages/searchResult/SearchResult";
+import Terms from "@pages/terms/Terms";
+import { getApiConfiguration, getGenres, getPeople } from "@store/homeSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
-import Home from "./pages/home/Home";
-import Details from "./pages/details/Details";
-import SearchResult from "./pages/searchResult/SearchResult";
-import Explore from "./pages/explore/Explore";
-import Persondetail from "./pages/personDetail/Persondetail";
-import Person from "./pages/person/Person";
-import Privacy from "./pages/privacy/Privacy";
-import Terms from "./pages/terms/Terms";
-import PageNotFound from "./pages/404/PageNotFound";
-import About from "./pages/about/About";
-import ScrollArrow from "./components/scrollArrow/ScrollArrow";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
+import { fetchDataFromApi } from "./utils/api";
 
 function App() {
   const dispatch = useDispatch();
@@ -87,9 +90,10 @@ function App() {
         <Route path="/search/:query" element={<SearchResult />} />
         <Route path="/explore/:mediaType" element={<Explore />} />
         <Route path="/person" element={<Person />} />
-        {/* <Route path="/search/" element={<SearchCategory />} /> */}
+        <Route path="/genre/:id/:name/:mediaType" element={<GenreList />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <ToastContainer />
       <Footer />
       <ScrollArrow />
     </BrowserRouter>

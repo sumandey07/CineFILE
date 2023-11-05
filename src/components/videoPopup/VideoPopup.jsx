@@ -1,6 +1,7 @@
 import React from "react";
 import ReactPlayer from "react-player/youtube";
 import { VscChromeClose } from "react-icons/vsc";
+import { FaYoutube } from "react-icons/fa";
 import "./style.scss";
 
 const VideoPopup = ({
@@ -19,8 +20,11 @@ const VideoPopup = ({
   return (
     <div className={`videoPopup ${show ? "visible" : ""}`}>
       <div className="opacityLayer" onClick={hidePopup}></div>
-      <div className="videoPlayer">
-        <div className="name">{value}</div>
+      <div className="rounded videoPlayer align-items-center">
+        <div className="name">
+          <FaYoutube color="red" className="me-3" size={30} />
+          {value}
+        </div>
         <div className="closeBtn">
           <VscChromeClose size={22} onClick={hidePopup} />
         </div>

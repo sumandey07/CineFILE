@@ -27,14 +27,13 @@ const sortbyData = [
   { value: "original_title.asc", label: "Title (A-Z)" },
 ];
 
-const Explore = () => {
+const GenreList = () => {
   const [data, setData] = useState(null);
   const [pageNum, setPageNum] = useState(1);
   const [loading, setLoading] = useState(false);
   const [genre, setGenre] = useState(null);
   const [sortby, setSortby] = useState(null);
-  const { mediaType } = useParams();
-  const { data: genresData } = useFetch(`/genre/${mediaType}/list`);
+  const { mediaType, id, name } = useParams();
 
   const fetchInitialData = () => {
     setLoading(true);
@@ -63,17 +62,19 @@ const Explore = () => {
 
   const pageHeader =
     mediaType === "tv"
-      ? "Explore TV Shows - CineFILE"
-      : "Explore Movies - CineFILE";
+      ? `All ${name} TV Shows - CineFILE`
+      : `All ${name} Movies - CineFILE`;
 
   useEffect(() => {
     filters = {};
     setData(null);
     setPageNum(1);
     setSortby(null);
-    setGenre(null);
+    setGenre(id);
+    let genreId = JSON.stringify(id).slice(1, -1);
+    filters.with_genres = genreId;
     fetchInitialData();
-  }, [mediaType]);
+  }, [mediaType, id]);
 
   const onChange = (selectedItems, action) => {
     if (action.name === "sortby") {
@@ -84,50 +85,25 @@ const Explore = () => {
         delete filters.sort_by;
       }
     }
-
-    if (action.name === "genres") {
-      setGenre(selectedItems);
-      if (action.action !== "clear") {
-        let genreId = selectedItems.map((g) => g.id);
-        genreId = JSON.stringify(genreId).slice(1, -1);
-        filters.with_genres = genreId;
-      } else {
-        delete filters.with_genres;
-      }
-    }
-
     setPageNum(1);
     fetchInitialData();
   };
 
   return (
-    <div className="explorePage">
+    <div className="genreList">
       <Helmet>
         <title>{pageHeader}</title>
         <meta
           name="description"
-          content="Explore movies and tv shows based on your preferences."
+          content="Explore movies and tv shows based on your selected genre."
         />
       </Helmet>
       <ContentWrapper>
         <div className="pageHeader">
           <div className="pageTitle">
-            {mediaType === "tv" ? "Explore TV Shows" : "Explore Movies"}
+            {mediaType === "tv" ? `All ${name} TV Shows` : `All ${name} Movies`}
           </div>
           <div className="filters">
-            <Select
-              isMulti
-              name="genres"
-              value={genre}
-              closeMenuOnSelect={true}
-              options={genresData?.genres}
-              getOptionLabel={(option) => option.name}
-              getOptionValue={(option) => option.id}
-              onChange={onChange}
-              placeholder="Select genres"
-              className="react-select-container genresDD"
-              classNamePrefix="react-select"
-            />
             <Select
               name="sortby"
               value={sortby}
@@ -172,4 +148,4 @@ const Explore = () => {
   );
 };
 
-export default Explore;
+export default GenreList;

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
@@ -16,6 +16,7 @@ import "./style.scss";
 const Carousel = ({ data, loading, endpoint, title }) => {
   const carouselContainer = useRef();
   const { url } = useSelector((state) => state.home);
+  const width = window.matchMedia("(min-width: 768px)");
   const navigate = useNavigate();
 
   const navigation = (dir) => {
@@ -67,21 +68,38 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                 ? url.poster + item.poster_path
                 : PosterFallback;
               return (
-                <div
-                  key={item.id}
-                  className="carouselItem"
-                  onClick={() =>
-                    navigate(`/${item.media_type || endpoint}/${item.id}`)
-                  }>
+                <div key={item.id} className="carouselItem">
                   <div className="posterBlock">
-                    <Img src={posterUrl} />
-                    <CircleRating rating={item.vote_average.toFixed(1)} />
-                    <Genres data={item.genre_ids.slice(0, 2)} />
+                    <div
+                      key={item.id}
+                      onClick={() =>
+                        navigate(`/${item.media_type || endpoint}/${item.id}`)
+                      }>
+                      <Img src={posterUrl} />
+                      <CircleRating rating={item.vote_average.toFixed(1)} />
+                    </div>
+                    {width.matches ? (
+                      <Genres
+                        className="genres"
+                        data={item.genre_ids.slice(0, 2)}
+                        media={item.media_type || endpoint}
+                      />
+                    ) : (
+                      <Genres
+                        className="genres"
+                        data={item.genre_ids.slice(0, 1)}
+                        media={item.media_type || endpoint}
+                      />
+                    )}
                   </div>
-                  <div className="textBlock">
+                  <div
+                    className="textBlock"
+                    onClick={() =>
+                      navigate(`/${item.media_type || endpoint}/${item.id}`)
+                    }>
                     <span className="title">{item.title || item.name}</span>
                     <span className="date">
-                      {dayjs(item.release_date || item.first_air_date).format(
+                      {dayjs(item?.release_date || item?.first_air_date).format(
                         "MMM D, YYYY"
                       )}
                     </span>

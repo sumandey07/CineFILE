@@ -9,7 +9,7 @@ const PersonList = () => {
   return (
     <div className="carouselSection">
       <ContentWrapper>
-        <span className="carouselTitle">Popular People</span>
+        <span className="carouselTitle">Trending People</span>
       </ContentWrapper>
       <CarouselItem data={data?.results} loading={loading} />
     </div>

@@ -23,14 +23,16 @@ const HeroBanner = () => {
   }, [data]);
 
   const searchQueryHandler = async (event) => {
-    if (event.key === "Enter" && query.length > 0) {
-      navigate(`/search/${query}`);
+    const newQuery = query.trim();
+    if (event.key === "Enter" && newQuery.length > 0) {
+      navigate(`/search/${newQuery}`);
     }
   };
 
   const submitHandler = () => {
-    if (query.length > 0) {
-      navigate(`/search/${query}`);
+    const newQuery = query.trim();
+    if (newQuery.length > 0) {
+      navigate(`/search/${newQuery}`);
     }
   };
 
