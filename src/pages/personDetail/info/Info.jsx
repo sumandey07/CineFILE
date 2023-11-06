@@ -132,7 +132,7 @@ const Info = ({ detail, loading }) => {
                             <div className="mt-2 align-items-center">
                               <span className="me-4">Share on:</span>
                               <EmailShareButton
-                                subject={`${detail?.name} - "CineFILE"`}
+                                subject={`${detail?.name} - CineFILE`}
                                 body="Check out this page on cinefile and don't forget to share it with others"
                                 separator="::"
                                 url={window.location.href}
@@ -147,20 +147,20 @@ const Info = ({ detail, loading }) => {
                                 <FaFacebookF size={20} />
                               </FacebookShareButton>
                               <TelegramShareButton
-                                title={`${detail?.name} - "CineFILE"`}
+                                title={`${detail?.name} - CineFILE`}
                                 url={window.location.href}
                                 className="me-4">
                                 <FaTelegram size={20} />
                               </TelegramShareButton>
                               <TwitterShareButton
-                                title={`${detail?.name} - "CineFILE"`}
+                                title={`${detail?.name} - CineFILE`}
                                 hashtags={["#cinefile", "#movies", "#tvshows"]}
                                 url={window.location.href}
                                 className="me-4">
                                 <FaXTwitter size={20} />
                               </TwitterShareButton>
                               <WhatsappShareButton
-                                title={`${detail?.name} - "CineFILE"`}
+                                title={`${detail?.name} - CineFILE`}
                                 url={window.location.href}
                                 className="me-4">
                                 <FaWhatsapp size={20} />
