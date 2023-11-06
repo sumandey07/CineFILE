@@ -265,7 +265,7 @@ const DetailsBanner = ({ video, crew }) => {
                     </div>
                     <div className="subtitle mt-1">
                       {certify?.length > 0 && (
-                        <span className="certify me-2 px-1 border-1 border border-white">
+                        <span className="certify me-2 px-1 rounded-2 border-1 border border-white">
                           {certify}
                         </span>
                       )}
